@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Neue Montreal";
+  overflow: hidden;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2em;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.gallery {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.item {
+  position: absolute;
+  width: 70px;
+  height: 100px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item.hidden {
+  opacity: 0; /* Hide the images when a larger image is displayed */
+}
+
+.item:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s;
+}
+
+/* Enlarged Image */
+.active-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  cursor: pointer;
+  text-align: center; /* Center the contents */
+}
+
+.active-image img {
+  width: 60%; /* Adjust size of enlarged image */
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Icon Buttons Container */
+.icon-buttons {
+  position: relative;
+}
+
+/* Individual Icon Container */
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Back Icon Container Positioned at Upper Left */
+.back-icon-container {
+  position: fixed;
+  top: 20px; /* Positioned near the top */
+  left: 20px; /* Positioned near the left */
+  z-index: 101; /* Ensure it's above everything else */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center icon in its container */
+  padding: 8px; /* Reduced padding around the icon */
+  border-radius: 50%; /* Round container */
+  cursor: pointer;
+}
+
+/* Download Icon Container Positioned at Bottom Right */
+.download-icon-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%; /* Round container */
+  padding: 8px; /* Reduced padding */
+}
+
+/* Back and Download Icons */
+.icon {
+  color: #333; /* Dark color for icons */
+  font-size: 24px; /* Reduced size for the icons */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.icon:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+.icon-container .icon-text {
+  margin-top: 5px;
+  font-size: 12px; /* Smaller text under the icons */
+  color: #333;
+}
+
+.back-icon {
+  color: #333; /* Dark color for the back icon */
+  font-size: 24px; /* Smaller size for the back icon */
+}
+
+.download-icon {
+  color: #333; /* Dark color for download icon */
+  text-decoration: none; /* Remove underline from link */
+}
